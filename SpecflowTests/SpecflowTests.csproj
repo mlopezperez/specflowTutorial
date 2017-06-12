@@ -65,6 +65,7 @@
     <Compile Include="Steps\AuctionControllerSteps\AuctionControllerGivenSteps.cs" />
     <Compile Include="Steps\AuctionControllerSteps\AuctionControllerThenSteps.cs" />
     <Compile Include="Steps\AuctionControllerSteps\AuctionControllerWhenSteps.cs" />
+    <Compile Include="Steps\AuctionControllerSteps\Hooks.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">

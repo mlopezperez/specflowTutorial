@@ -11,13 +11,12 @@ namespace SpecflowTests.Steps.AuctionControllerSteps
         [Given(@"A list of (.*) auctions stored in database")]
         public void GivenAListOfAuctionsStoredInDatabase(int numberOfAuctions)
         {
-            IAuctionRepository repo = new AuctionRepository();
+            var repo = ScenarioContext.Current.Get<IAuctionRepository>();
             for (int i = 0; i < numberOfAuctions; i++)
             {
                 var auctions = GenerateAuction(i);
                 repo.Add(auctions);
             }
-            ScenarioContext.Current.Set(repo);
         }
 
         [Given(@"A an auction with (.*) and ""(.*)""")]
