@@ -3,7 +3,7 @@ using AuctionApi.Models;
 
 namespace AuctionApi.Repositories
 {
-    internal interface IAuctionRepository
+    public interface IAuctionRepository
     {
         IEnumerable<Auction> GetAllAuctions();
 

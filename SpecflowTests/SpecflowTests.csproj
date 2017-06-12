@@ -62,5 +62,11 @@
       <LastGenOutput>RetrieveAuctions.feature.cs</LastGenOutput>
     </None>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AuctionApi\AuctionApi.csproj">
+      <Project>{111ECA39-7E5E-4EB3-9812-B3F36FE6A9C1}</Project>
+      <Name>AuctionApi</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
