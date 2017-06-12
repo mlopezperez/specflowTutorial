@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using AuctionApi.Controllers;
 using AuctionApi.Models;
 using AuctionApi.Repositories;
 using NUnit.Framework;
@@ -32,11 +33,12 @@ namespace SpecflowTests.Steps
             };
         }
 
-        [When(@"I retrieve all actions")]
-        public void WhenIRetrieveAllActions()
+        [When(@"I retrieve all actions from controller")]
+        public void WhenIRetrieveAllActionsFromController()
         {
             var repo = ScenarioContext.Current.Get<IAuctionRepository>();
-            var auctions = repo.GetAllAuctions();
+            var controller = new AuctionController(repo);
+            var auctions = controller.Get();
             ScenarioContext.Current.Set<IEnumerable<Auction>>(auctions);
         }
 

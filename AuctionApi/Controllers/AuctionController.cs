@@ -7,7 +7,12 @@ namespace AuctionApi.Controllers
 {
     public class AuctionController : ApiController
     {
-        private readonly IAuctionRepository _auctionRepository = new AuctionRepository();
+        private readonly IAuctionRepository _auctionRepository;
+
+        public AuctionController(IAuctionRepository auctionRepository)
+        {
+            _auctionRepository = auctionRepository;
+        }
 
         public IEnumerable<Auction> Get()
         {
