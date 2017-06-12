@@ -9,8 +9,14 @@ Scenario: Get all auctions
 	When I retrieve all actions from controller
 	Then the returned result must have 3 elements
 
-#@controllerTest
-#Scenario Outline: 
-#	Given A an auction stored with <id> and <StartDateTime>
-#	When I retrieve the auction with the <id>
-#	Then the returned auction must have <expectedId> and <ExpectedEndDate>
+@controllerTest
+Scenario Outline: Check end date time is properly set
+	Given A an auction with <id> and <StartDateTime>
+	When I save it
+	Then the auction in repo must have <expectedId> and <ExpectedEndDate>
+	Examples: 
+	| id | StartDateTime | searchId | expectedId | ExpectedEndDate |
+	| 1  | "30/06/2017"  | 1        | 1          | "01/07/2017"    |
+	| 2  | "19/06/2017"  | 2        | 2          | "20/06/2017"    |
+
+

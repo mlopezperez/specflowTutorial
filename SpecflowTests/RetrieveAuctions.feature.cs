@@ -82,6 +82,32 @@ this.ScenarioSetup(scenarioInfo);
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Check end date time is properly set")]
+        [NUnit.Framework.CategoryAttribute("controllerTest")]
+        [NUnit.Framework.TestCaseAttribute("1", "\"30/06/2017\"", "1", "1", "\"01/07/2017\"", new string[0])]
+        [NUnit.Framework.TestCaseAttribute("2", "\"19/06/2017\"", "2", "2", "\"20/06/2017\"", new string[0])]
+        public virtual void CheckEndDateTimeIsProperlySet(string id, string startDateTime, string searchId, string expectedId, string expectedEndDate, string[] exampleTags)
+        {
+            string[] @__tags = new string[] {
+                    "controllerTest"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Check end date time is properly set", @__tags);
+#line 13
+this.ScenarioSetup(scenarioInfo);
+#line 14
+ testRunner.Given(string.Format("A an auction with {0} and {1}", id, startDateTime), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 15
+ testRunner.When("I save it", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 16
+ testRunner.Then(string.Format("the auction in repo must have {0} and {1}", expectedId, expectedEndDate), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore

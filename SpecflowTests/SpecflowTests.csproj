@@ -62,11 +62,17 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>RetrieveAuctions.feature</DependentUpon>
     </Compile>
-    <Compile Include="Steps\AuctionSteps.cs" />
+    <Compile Include="Steps\AuctionControllerSteps\AuctionControllerGivenSteps.cs" />
+    <Compile Include="Steps\AuctionControllerSteps\AuctionControllerThenSteps.cs" />
+    <Compile Include="Steps\AuctionControllerSteps\AuctionControllerWhenSteps.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
-    <None Include="packages.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="RetrieveAuctions.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>RetrieveAuctions.feature.cs</LastGenOutput>
