@@ -64,6 +64,14 @@ namespace SpecflowTests
             testRunner.CollectScenarioErrors();
         }
         
+        public virtual void FeatureBackground()
+        {
+#line 6
+#line 7
+ testRunner.Given("A list of 3 auctions stored in database", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+        }
+        
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Get all auctions")]
         [NUnit.Framework.CategoryAttribute("controllerTest")]
@@ -71,13 +79,13 @@ namespace SpecflowTests
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get all auctions", new string[] {
                         "controllerTest"});
-#line 7
-this.ScenarioSetup(scenarioInfo);
-#line 8
- testRunner.Given("A list of 3 auctions stored in database", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 9
- testRunner.When("I retrieve all actions from controller", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 10
+this.ScenarioSetup(scenarioInfo);
+#line 6
+this.FeatureBackground();
+#line 11
+ testRunner.When("I retrieve all actions from controller", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 12
  testRunner.Then("the returned result must have 3 elements", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -86,9 +94,9 @@ this.ScenarioSetup(scenarioInfo);
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Check end date time is properly set")]
         [NUnit.Framework.CategoryAttribute("controllerTest")]
-        [NUnit.Framework.TestCaseAttribute("1", "\"30/06/2017\"", "1", "1", "\"01/07/2017\"", new string[0])]
-        [NUnit.Framework.TestCaseAttribute("2", "\"19/06/2017\"", "2", "2", "\"20/06/2017\"", new string[0])]
-        public virtual void CheckEndDateTimeIsProperlySet(string id, string startDateTime, string searchId, string expectedId, string expectedEndDate, string[] exampleTags)
+        [NUnit.Framework.TestCaseAttribute("4", "\"30/06/2017\"", "4", "\"01/07/2017\"", new string[0])]
+        [NUnit.Framework.TestCaseAttribute("5", "\"19/06/2017\"", "5", "\"20/06/2017\"", new string[0])]
+        public virtual void CheckEndDateTimeIsProperlySet(string id, string startDateTime, string expectedId, string expectedEndDate, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "controllerTest"};
@@ -97,14 +105,20 @@ this.ScenarioSetup(scenarioInfo);
                 @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
             }
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Check end date time is properly set", @__tags);
-#line 13
-this.ScenarioSetup(scenarioInfo);
-#line 14
- testRunner.Given(string.Format("A an auction with {0} and {1}", id, startDateTime), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 15
- testRunner.When("I save it", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+this.ScenarioSetup(scenarioInfo);
+#line 6
+this.FeatureBackground();
 #line 16
+ testRunner.Given(string.Format("A an auction with {0} and {1}", id, startDateTime), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 17
+ testRunner.When("I save it", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 18
+ testRunner.And("I retrieve all actions from controller", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 19
  testRunner.Then(string.Format("the auction in repo must have {0} and {1}", expectedId, expectedEndDate), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 20
+ testRunner.And("the returned result must have 4 elements", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }

@@ -12,23 +12,11 @@ namespace SpecflowTests.Steps.AuctionControllerSteps
         [When(@"I retrieve all actions from controller")]
         public void WhenIRetrieveAllActionsFromController()
         {
-            var repo = ScenarioContext.Current.Get<IAuctionRepository>();
-            var controller = new AuctionController(repo);
+            var controller = ScenarioContext.Current.Get<AuctionController>();
             var auctions = controller.Get();
             ScenarioContext.Current.Set<IEnumerable<Auction>>(auctions);
         }
-
-
-        [When(@"I retrieve the auction with the (.*)")]
-        public void WhenIRetrieveTheAuctionWithThe(int id)
-        {
-            var repo = ScenarioContext.Current.Get<IAuctionRepository>();
-            var controller = new AuctionController(repo);
-            var auction = controller.Get(id);
-
-            ScenarioContext.Current.Set(auction);
-        }
-
+        
         [When(@"I save it")]
         public void WhenISaveIt()
         {
