@@ -6,21 +6,27 @@ namespace AuctionApi.Repositories
 {
     public class AuctionRepository : IAuctionRepository
     {
-        private IList<Auction> auctions = new List<Auction>();
+        private readonly IList<Auction> _storage;
+
+        public AuctionRepository(IList<Auction> storage)
+        {
+            _storage = storage;
+        }
+
 
         public IEnumerable<Auction> GetAllAuctions()
         {
-            return auctions;
+            return _storage;
         }
 
         public Auction GetAuction(int id)
         {
-            return auctions.SingleOrDefault(i => i.Id == id);
+            return _storage.SingleOrDefault(i => i.Id == id);
         }
 
         public void Add(Auction auction)
         {
-            auctions.Add(auction);
+            _storage.Add(auction);
         }
     }
 }

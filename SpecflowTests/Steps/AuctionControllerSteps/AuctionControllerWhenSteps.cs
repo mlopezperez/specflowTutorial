@@ -1,6 +1,5 @@
-﻿using AuctionApi.Controllers;
-using AuctionApi.Models;
-using AuctionApi.Repositories;
+﻿using AuctionApi.Models;
+using SpecflowTests.Context;
 using System.Collections.Generic;
 using TechTalk.SpecFlow;
 
@@ -9,11 +8,17 @@ namespace SpecflowTests.Steps.AuctionControllerSteps
     [Binding]
     public class AuctionControllerWhenSteps
     {
+        private readonly AuctionControllerContext _context;
+
+        public AuctionControllerWhenSteps(AuctionControllerContext context)
+        {
+            _context = context;
+        }
+
         [When(@"I retrieve all actions from controller")]
         public void WhenIRetrieveAllActionsFromController()
         {
-            var controller = ScenarioContext.Current.Get<AuctionController>();
-            var auctions = controller.Get();
+            var auctions = _context.Controller.Get();
             ScenarioContext.Current.Set<IEnumerable<Auction>>(auctions);
         }
         
@@ -21,12 +26,8 @@ namespace SpecflowTests.Steps.AuctionControllerSteps
         public void WhenISaveIt()
         {
             var auction = ScenarioContext.Current.Get<Auction>();
-            IAuctionRepository repo = new AuctionRepository();
-
-            var controller = new AuctionController(repo);
-            controller.Save(auction);
-
-            ScenarioContext.Current.Set(repo);
+            
+            _context.Controller.Save(auction);
         }
     }
 }

@@ -1,5 +1,8 @@
-﻿using AuctionApi.Controllers;
+﻿using System.Collections.Generic;
+using AuctionApi.Controllers;
+using AuctionApi.Models;
 using AuctionApi.Repositories;
+using SpecflowTests.Context;
 using TechTalk.SpecFlow;
 
 namespace SpecflowTests.Steps.AuctionControllerSteps
@@ -7,20 +10,25 @@ namespace SpecflowTests.Steps.AuctionControllerSteps
     [Binding]
     public class Hooks
     {
-        [BeforeScenario("controllerTest")]
-        public static void BeforeScenario()
-        {
-            IAuctionRepository repo = new AuctionRepository();
-            var controller = new AuctionController(repo);
+        private readonly AuctionControllerContext _context;
 
-            ScenarioContext.Current.Set(repo);
-            ScenarioContext.Current.Set(controller);
+        public Hooks(AuctionControllerContext context)
+        {
+            _context = context;
+        }
+
+        [BeforeScenario("controllerTest")]
+        public void BeforeScenario()
+        {
+            _context.Auctions = new List<Auction>();
+            IAuctionRepository repo = new AuctionRepository(_context.Auctions);
+            _context.Controller = new AuctionController(repo);
         }
 
         [AfterScenario]
-        public static void AfterScenario()
+        public void AfterScenario()
         {
-            // Nothing to do here yet;
+            _context.Auctions.Clear();
         }
     }
 }

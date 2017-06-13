@@ -1,6 +1,6 @@
-﻿using System;
-using AuctionApi.Models;
-using AuctionApi.Repositories;
+﻿using AuctionApi.Models;
+using SpecflowTests.Context;
+using System;
 using TechTalk.SpecFlow;
 
 namespace SpecflowTests.Steps.AuctionControllerSteps
@@ -8,14 +8,20 @@ namespace SpecflowTests.Steps.AuctionControllerSteps
     [Binding]
     public class AuctionControllerGivenSteps
     {
+        private readonly AuctionControllerContext _context;
+
+        public AuctionControllerGivenSteps(AuctionControllerContext context)
+        {
+            _context = context;
+        }
+
         [Given(@"A list of (.*) auctions stored in database")]
         public void GivenAListOfAuctionsStoredInDatabase(int numberOfAuctions)
         {
-            var repo = ScenarioContext.Current.Get<IAuctionRepository>();
             for (int i = 0; i < numberOfAuctions; i++)
             {
                 var auctions = GenerateAuction(i);
-                repo.Add(auctions);
+                _context.Auctions.Add(auctions);
             }
         }
 
