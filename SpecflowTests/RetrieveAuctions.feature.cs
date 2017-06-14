@@ -64,14 +64,6 @@ namespace SpecflowTests
             testRunner.CollectScenarioErrors();
         }
         
-        public virtual void FeatureBackground()
-        {
-#line 6
-#line 7
- testRunner.Given("A list of 3 auctions stored in database", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line hidden
-        }
-        
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Get all auctions")]
         [NUnit.Framework.CategoryAttribute("controllerTest")]
@@ -79,13 +71,26 @@ namespace SpecflowTests
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get all auctions", new string[] {
                         "controllerTest"});
-#line 10
-this.ScenarioSetup(scenarioInfo);
 #line 6
-this.FeatureBackground();
-#line 11
- testRunner.When("I retrieve all actions from controller", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+this.ScenarioSetup(scenarioInfo);
+#line hidden
+            TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Id",
+                        "StartDateTime"});
+            table1.AddRow(new string[] {
+                        "1",
+                        "\"09/06/2017\""});
+            table1.AddRow(new string[] {
+                        "2",
+                        "\"01/06/2017\""});
+            table1.AddRow(new string[] {
+                        "3",
+                        "\"02/06/2017\""});
+#line 7
+ testRunner.Given("A list of auctions stored in database", ((string)(null)), table1, "Given ");
 #line 12
+ testRunner.When("I retrieve all actions from controller", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 13
  testRunner.Then("the returned result must have 3 elements", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -105,19 +110,19 @@ this.FeatureBackground();
                 @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
             }
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Check end date time is properly set", @__tags);
-#line 15
-this.ScenarioSetup(scenarioInfo);
-#line 6
-this.FeatureBackground();
 #line 16
- testRunner.Given(string.Format("A an auction with {0} and {1}", id, startDateTime), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+this.ScenarioSetup(scenarioInfo);
 #line 17
- testRunner.When("I save it", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.Given("A list of 3 auctions stored in database", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 18
- testRunner.And("I retrieve all actions from controller", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And(string.Format("A an auction with {0} and {1}", id, startDateTime), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 19
- testRunner.Then(string.Format("the auction in repo must have {0} and {1}", expectedId, expectedEndDate), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.When("I save it", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 20
+ testRunner.And("I retrieve all actions from controller", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 21
+ testRunner.Then(string.Format("the auction in repo must have {0} and {1}", expectedId, expectedEndDate), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 22
  testRunner.And("the returned result must have 4 elements", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();

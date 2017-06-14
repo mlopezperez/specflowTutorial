@@ -2,6 +2,7 @@
 using SpecflowTests.Context;
 using System;
 using TechTalk.SpecFlow;
+using TechTalk.SpecFlow.Assist;
 
 namespace SpecflowTests.Steps.AuctionControllerSteps
 {
@@ -14,6 +15,17 @@ namespace SpecflowTests.Steps.AuctionControllerSteps
         {
             _context = context;
         }
+
+        [Given(@"A list of auctions stored in database")]
+        public void GivenAListOfAuctionsStoredInDatabase(Table table)
+        {
+            var auctions = table.CreateSet<Auction>();
+            foreach (var auction in auctions)
+            {
+                _context.Auctions.Add(auction);
+            }
+        }
+
 
         [Given(@"A list of (.*) auctions stored in database")]
         public void GivenAListOfAuctionsStoredInDatabase(int numberOfAuctions)
