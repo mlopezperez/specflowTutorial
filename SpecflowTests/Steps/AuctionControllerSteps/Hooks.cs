@@ -17,7 +17,7 @@ namespace SpecflowTests.Steps.AuctionControllerSteps
             _context = context;
         }
 
-        [BeforeScenario("controllerTest")]
+        [BeforeScenario("controllerTest")]        
         public void BeforeScenario()
         {
             _context.Auctions = new List<Auction>();

@@ -25,6 +25,7 @@ namespace AuctionApi.Controllers
             return _auctionRepository.GetAuction(auctionId);
         }
 
+        [HttpPost]
         public void Save(Auction auction)
         {
             if (auction == null)

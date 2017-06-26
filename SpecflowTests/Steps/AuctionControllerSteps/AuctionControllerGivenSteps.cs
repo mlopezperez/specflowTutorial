@@ -1,6 +1,8 @@
 ﻿using AuctionApi.Models;
 using SpecflowTests.Context;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using TechTalk.SpecFlow;
 using TechTalk.SpecFlow.Assist;
 

@@ -71,7 +71,7 @@ namespace SpecflowTests
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get all auctions", new string[] {
                         "controllerTest"});
-#line 6
+#line 7
 this.ScenarioSetup(scenarioInfo);
 #line hidden
             TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
@@ -86,11 +86,11 @@ this.ScenarioSetup(scenarioInfo);
             table1.AddRow(new string[] {
                         "3",
                         "\"02/06/2017\""});
-#line 7
+#line 8
  testRunner.Given("A list of auctions stored in database", ((string)(null)), table1, "Given ");
-#line 12
- testRunner.When("I retrieve all actions from controller", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 13
+ testRunner.When("I retrieve all actions from controller", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 14
  testRunner.Then("the returned result must have 3 elements", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -99,8 +99,8 @@ this.ScenarioSetup(scenarioInfo);
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Check end date time is properly set")]
         [NUnit.Framework.CategoryAttribute("controllerTest")]
-        [NUnit.Framework.TestCaseAttribute("4", "\"30/06/2017\"", "4", "\"01/07/2017\"", new string[0])]
-        [NUnit.Framework.TestCaseAttribute("5", "\"19/06/2017\"", "5", "\"20/06/2017\"", new string[0])]
+        [NUnit.Framework.TestCaseAttribute("4", "\"28/02/2016\"", "4", "\"29/02/2016\"", new string[0])]
+        [NUnit.Framework.TestCaseAttribute("5", "\"28/02/2017\"", "5", "\"01/03/2017\"", new string[0])]
         public virtual void CheckEndDateTimeIsProperlySet(string id, string startDateTime, string expectedId, string expectedEndDate, string[] exampleTags)
         {
             string[] @__tags = new string[] {
@@ -110,20 +110,40 @@ this.ScenarioSetup(scenarioInfo);
                 @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
             }
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Check end date time is properly set", @__tags);
-#line 16
-this.ScenarioSetup(scenarioInfo);
 #line 17
- testRunner.Given("A list of 3 auctions stored in database", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+this.ScenarioSetup(scenarioInfo);
 #line 18
- testRunner.And(string.Format("A an auction with {0} and {1}", id, startDateTime), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.Given(string.Format("A an auction with {0} and {1}", id, startDateTime), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 19
  testRunner.When("I save it", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 20
- testRunner.And("I retrieve all actions from controller", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 21
  testRunner.Then(string.Format("the auction in repo must have {0} and {1}", expectedId, expectedEndDate), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 22
- testRunner.And("the returned result must have 4 elements", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Check login credentials")]
+        [NUnit.Framework.CategoryAttribute("loginTest")]
+        [NUnit.Framework.TestCaseAttribute("aroaTrader", "AroaTrader01", "200", new string[0])]
+        [NUnit.Framework.TestCaseAttribute("manuTrader", "ManuPassword01", "403", new string[0])]
+        public virtual void CheckLoginCredentials(string login, string password, string httpCode, string[] exampleTags)
+        {
+            string[] @__tags = new string[] {
+                    "loginTest"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Check login credentials", @__tags);
+#line 29
+this.ScenarioSetup(scenarioInfo);
+#line 30
+ testRunner.Given(string.Format("the user credentials {0} and {1}", login, password), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 31
+ testRunner.When("I try to log in", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 32
+ testRunner.Then(string.Format("the server must return an {0}", httpCode), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26430.12
+VisualStudioVersion = 15.0.26430.13
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuctionApi", "AuctionApi\AuctionApi.csproj", "{111ECA39-7E5E-4EB3-9812-B3F36FE6A9C1}"
 EndProject
@@ -11,6 +11,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionIt
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpecflowTests", "SpecflowTests\SpecflowTests.csproj", "{CF49C5C1-FD14-4E13-AA55-133156A097AB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpecflowWorkshop", "SpecflowWorkshop\SpecflowWorkshop.csproj", "{482E910A-73AB-4B98-83EE-E621A43B7E7C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -26,6 +28,10 @@ Global
 		{CF49C5C1-FD14-4E13-AA55-133156A097AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CF49C5C1-FD14-4E13-AA55-133156A097AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CF49C5C1-FD14-4E13-AA55-133156A097AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{482E910A-73AB-4B98-83EE-E621A43B7E7C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{482E910A-73AB-4B98-83EE-E621A43B7E7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{482E910A-73AB-4B98-83EE-E621A43B7E7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{482E910A-73AB-4B98-83EE-E621A43B7E7C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
